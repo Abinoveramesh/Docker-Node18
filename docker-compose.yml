@@ -14,7 +14,7 @@ services:
       dockerfile: Dockerfile
     container_name: nodejs
     ports:
-      - "3000:3000"
+      - "3000:4000"
     depends_on:
       - mongodb
     environment:
