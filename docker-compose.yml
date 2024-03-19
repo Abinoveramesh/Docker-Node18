@@ -13,11 +13,4 @@ services:
     ports:
       - "27017:27017"
 
-  apache:
-    image: httpd
-    ports:
-      - "80:80"
-    volumes:
-      - ./apache-config:/usr/local/apache2/conf
-    depends_on:
-      - web
+  
