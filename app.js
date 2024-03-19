@@ -44,8 +44,12 @@ app.get('/items', async (req, res) => {
   }
 });
 
+// Define a route handler for the root URL
+app.get('/', (req, res) => {
+  res.send('Welcome to the Node.js and MongoDB App!');
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-
