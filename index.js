@@ -29,16 +29,7 @@ async function startServer() {
       res.sendFile(path.join(__dirname, 'public', 'index.html'));
     });
 
-    // Set up other routes (e.g., for handling API requests)
-
     // Start the server
     app.listen(port, () => {
       console.log(`Server is listening at http://localhost:${port}`);
-    });
-  } catch (err) {
-    console.error('Error:', err);
-  }
-}
-
-// Call the function to start the server
-startServer();
+  
