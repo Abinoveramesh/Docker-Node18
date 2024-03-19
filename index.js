@@ -1,6 +1,6 @@
 // index.js
 const express = require('express');
-const mongodb = require('mongodb');
+const { MongoClient } = require('mongodb');
 
 const app = express();
 const port = 3000;
@@ -9,7 +9,7 @@ const port = 3000;
 const mongoURL = 'mongodb://localhost:27017';
 
 // Connect to MongoDB
-mongodb.MongoClient.connect(mongoURL, { useUnifiedTopology: true }, (err, client) => {
+MongoClient.connect(mongoURL, (err, client) => {
     if (err) {
         console.error('Error connecting to MongoDB:', err);
         return;
@@ -30,4 +30,3 @@ mongodb.MongoClient.connect(mongoURL, { useUnifiedTopology: true }, (err, client
         console.log(`Server is running on http://localhost:${port}`);
     });
 });
-
