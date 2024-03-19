@@ -1,16 +1,24 @@
-version: '3.8'
-
+version: '3'
 services:
-  web:
-    build: .
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27018:27017" # Map host port 27018 to container port 27017
+    volumes:
+      - mongodb_data:/data/db
+
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nodejs
     ports:
       - "3000:3000"
     depends_on:
       - mongodb
+    environment:
+      MONGO_URI: mongodb://mongodb:27017/my_database
 
-  mongodb:
-    image: mongo
-    ports:
-      - "27017:27017"
-
-  
+volumes:
+  mongodb_data:
